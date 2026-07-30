@@ -1,0 +1,25 @@
+class Family:
+    def __init__(self, address):
+        self.address = address
+
+class School:
+    def __init__(self, id, level):
+        self.id = id
+        self.level = level
+
+class Sports:
+    def __init__(self, game):
+        self.game = game
+
+class Student(Family, School, Sports):
+    def __init__(self, address, id, level, game):
+        School.__init__(self, id, level)
+        Sports.__init__(self, game)
+        Family.__init__(self, address)
+
+    def __repr__(self):
+        return f"Address: {self.address}, School_id: {self.id}, School_level: {self.level}, Favorite_sport: {self.game}"
+
+
+alex = Student('Dhaka', 101, 9, "Cricket")
+print(alex)
